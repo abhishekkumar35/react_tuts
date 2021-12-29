@@ -1,13 +1,15 @@
 import './ExpenseItem.css' 
 
-function ExpenseItem(){
-    let title = "Car Insurance";
+function ExpenseItem(props){
+   const month = props.date.toLocalString("en-US",{month:"long"});
+   const year = props.date.getFullYear();
+   const day = props.date.toLocalString("en-US",{day:"2-digit"});
     return (
         <div className='expense-item'>
-            <div>March 12 2021</div>
+           
             <div className='expense-item__description'>
-                <h2>{title}</h2>
-                <div className='expense-item__price'>$200</div>
+                <h2>{props.title}</h2>
+                <div className='expense-item__price'>{props.amount}</div>
             </div>
         </div>
     );
